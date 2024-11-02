@@ -11,8 +11,8 @@
 
 #define DVORAK_BASE 1
 
-#define TBLE_ORTHO   1
-// #define TBLE_MIT     1
+#define TBLE_ORTHO   0
+// #define TBLE_MIT     0
 #define TBLE_DUAL_2U 1
 
 #define NAV_L 1
@@ -55,15 +55,15 @@
     };
 
 // Conditional layer only when we have less thumb keys
-#ifdef TBLE_DUAL_2U
-    cond_layers {
-        compatible = "zmk,conditional-layers";
-	tri {
-	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <SYM_L>;
-        };
-    };
-#endif
+//#ifdef TBLE_DUAL_2U
+//    cond_layers {
+//        compatible = "zmk,conditional-layers";
+//	tri {
+//	    if-layers = <NUM_L NAV_L>;
+//	    then-layer = <SYM_L>;
+//        };
+//    };
+//#endif
 
     keymap {
         compatible = "zmk,keymap";
@@ -71,10 +71,10 @@
         base_layer {
             label = "Base";
             bindings = <
-&kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
-&kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
+&kp TAB    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
+&kp LCTRL    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp RET
-&kp NAV_L  &mo LCTRL  &kp LALT   &kp LGUI    &mo SYM_L      &kp SPACE      &kp BKSP         &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+&mo NAV_L  &kp LCTRL  &kp LALT   &kp LGUI    &mo SYM_L      &kp SPACE      &kp BKSP         &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
             >;
         };
 
